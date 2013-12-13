@@ -17,3 +17,4 @@
 
 #### agento ignore
 lib
+var/cache/*
