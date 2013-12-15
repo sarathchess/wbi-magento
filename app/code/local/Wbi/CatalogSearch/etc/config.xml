@@ -1,0 +1,19 @@
+<config>
+    <modules>
+        <Wbi_CatalogSearch>
+            <version>0.1.0</version>
+        </Wbi_CatalogSearch>
+    </modules>
+
+
+
+    <global>
+        <blocks>
+            <catalogsearch>
+                <rewrite>
+                    <advanced_form>Wbi_CatalogSearch_Block_Advanced_Form</advanced_form>
+                </rewrite>
+            </catalogsearch>
+        </blocks>
+    </global>
+</config>

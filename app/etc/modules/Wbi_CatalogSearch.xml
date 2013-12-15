@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <Wbi_CatalogSearch>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Wbi_CatalogSearch>
+    </modules>
+</config>
