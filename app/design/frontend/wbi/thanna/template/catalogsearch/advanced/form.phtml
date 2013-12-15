@@ -30,10 +30,7 @@
  *
  * @see Mage_CatalogSearch_Block_Advanced_Form
  */
-echo get_class($this)."<br>";
-var_dump($this->getSearchPostUrl());
-$abstractClass = new ReflectionClass(get_class($this));
-echo dirname($abstractClass->getFileName());
+
 ?>
 <?php $maxQueryLength= $this->helper('catalogsearch')->getMaxQueryLength();?>
 <div class="page-title">

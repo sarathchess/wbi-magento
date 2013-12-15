@@ -44,5 +44,11 @@ class Wbi_CatalogSearch_Block_Advanced_Form extends Mage_CatalogSearch_Block_Adv
         //return $this->getUrl('*/*/result');
         return $this->getUrl('catalogsearch/advanced/result/');
     }
+    
+    
+    public function _prepareLayout()
+    {}
+    
+    
 
 }
