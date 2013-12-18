@@ -44,13 +44,7 @@ Default layout, loads most of the pages
 
     <default>
         
-        <reference name="content">
-            <block type="catalogsearch/advanced_form"
-            before="left.permanent.callout"
-            name="catalogsearch.advanced.form"
-            template="catalogsearch/advanced/form.phtml"
-            />
-        </reference>
+        
 
         <!-- Mage_Catalog -->
         <reference name="left">
@@ -88,6 +82,7 @@ Category default layout
             <block type="catalog/navigation" name="catalog.leftnav" after="currency" template="catalog/navigation/left.phtml"/>
         </reference>
         <reference name="content">
+            <block type="catalogsearch/advanced_form" before="left.permanent.callout" name="catalogsearch.advanced.form" template="catalogsearch/advanced/form.phtml" />
             <block type="catalog/category_view" name="category.products" template="catalog/category/view.phtml">
                 <block type="catalog/product_list" name="product_list" template="catalog/product/list.phtml">
                     <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
@@ -124,6 +119,7 @@ Category layered navigation layout
             <block type="catalog/layer_view" name="catalog.leftnav" after="currency" template="catalog/layer/view.phtml"/>
         </reference>
         <reference name="content">
+            <block type="catalogsearch/advanced_form" before="left.permanent.callout" name="catalogsearch.advanced.form" template="catalogsearch/advanced/form.phtml" />
             <block type="catalog/category_view" name="category.products" template="catalog/category/view.phtml">
                 <block type="catalog/product_list" name="product_list" template="catalog/product/list.phtml">
                     <!-- <action method="addReviewSummaryTemplate"><type>default</type><template>review/helper/su.phtml</template></action> -->
@@ -187,9 +183,9 @@ Product view
     <catalog_product_view translate="label">
         <label>Catalog Product View (Any)</label>
         <!-- Mage_Catalog -->
-        <reference name="root">
+        <!-- <reference name="root">
             <action method="setTemplate"><template>page/2columns-right.phtml</template></action>
-        </reference>
+        </reference> -->
         <reference name="head">
             <action method="addJs"><script>varien/product.js</script></action>
             <action method="addJs"><script>varien/configurable.js</script></action>
