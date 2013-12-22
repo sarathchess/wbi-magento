@@ -166,6 +166,7 @@ class Mage_CatalogSearch_Block_Advanced_Form extends Mage_Core_Block_Template
     {
         $dataType   = $attribute->getBackend()->getType();
         $imputType  = $attribute->getFrontend()->getInputType();
+        echo $imputType;
         if ($imputType == 'select' || $imputType == 'multiselect') {
             return 'select';
         }

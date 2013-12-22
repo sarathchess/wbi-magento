@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <Wbi_Adminhtml>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Wbi_Adminhtml>
+    </modules>
+</config>

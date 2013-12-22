@@ -206,6 +206,7 @@
                     <price>price</price>
                     <media_image>media_image</media_image>
                     <gallery>gallery</gallery>
+                    <range>range</range>
                 </input_types>
             </validator_data>
         </general>

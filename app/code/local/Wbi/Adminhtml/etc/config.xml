@@ -1,0 +1,19 @@
+<config>
+    <modules>
+        <Wbi_Adminhtml>
+            <version>0.1.0</version>
+        </Wbi_Adminhtml>
+    </modules>
+
+
+
+    <global>
+        <blocks>
+            <adminhtml>
+                <rewrite>
+                    <catalog_product_attribute_edit_tab_main>Wbi_Adminhtml_Block_Catalog_Product_Attribute_Edit_Tab_Main</catalog_product_attribute_edit_tab_main>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+    </global>
+</config>

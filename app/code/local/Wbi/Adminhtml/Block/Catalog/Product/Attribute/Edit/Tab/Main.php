@@ -32,7 +32,7 @@
  * @package    Mage_Adminhtml
  * @author     Magento Core Team <core@magentocommerce.com>
  */
-class Mage_Adminhtml_Block_Catalog_Product_Attribute_Edit_Tab_Main extends Mage_Eav_Block_Adminhtml_Attribute_Edit_Main_Abstract
+class Wbi_Adminhtml_Block_Catalog_Product_Attribute_Edit_Tab_Main extends Mage_Eav_Block_Adminhtml_Attribute_Edit_Main_Abstract
 {
     /**
      * Adding product form elements for editing attribute
@@ -53,6 +53,10 @@ class Mage_Adminhtml_Block_Catalog_Product_Attribute_Edit_Tab_Main extends Mage_
             array(
                 'value' => 'price',
                 'label' => Mage::helper('catalog')->__('Price')
+            ),
+            array(
+                'value' => 'range',
+                'label' => Mage::helper('catalog')->__('Range')
             ),
             array(
                 'value' => 'media_image',
@@ -246,7 +250,8 @@ class Mage_Adminhtml_Block_Catalog_Product_Attribute_Edit_Tab_Main extends Mage_
 
         return $this;
     }
-
+    
+    
     /**
      * Retrieve additional element types for product attributes
      *
@@ -256,6 +261,9 @@ class Mage_Adminhtml_Block_Catalog_Product_Attribute_Edit_Tab_Main extends Mage_
     {
         return array(
             'apply'         => Mage::getConfig()->getBlockClassName('adminhtml/catalog_product_helper_form_apply'),
+            'range'         => Mage::getConfig()->getBlockClassName('adminhtml/catalog_product_helper_form_range')
         );
     }
+
+    
 }
