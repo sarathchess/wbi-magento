@@ -12,6 +12,8 @@
             <adminhtml>
                 <rewrite>
                     <catalog_product_attribute_edit_tab_main>Wbi_Adminhtml_Block_Catalog_Product_Attribute_Edit_Tab_Main</catalog_product_attribute_edit_tab_main>
+                    <catalog_product_edit_tab_attributes>Wbi_Adminhtml_Block_Catalog_Product_Edit_Tab_Attributes</catalog_product_edit_tab_attributes>    
+                    <catalog_product_helper_form_range>Wbi_Adminhtml_Block_Catalog_Product_Helper_Form_Range</catalog_product_helper_form_range>
                 </rewrite>
             </adminhtml>
         </blocks>

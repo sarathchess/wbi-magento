@@ -50,5 +50,44 @@ class Wbi_CatalogSearch_Block_Advanced_Form extends Mage_CatalogSearch_Block_Adv
     {}
     
     
+    /**
+     * Retrieve attribute input type
+     *
+     * @param Mage_Eav_Model_Entity_Attribute_Abstract $attribute
+     * @return  string
+     */
+    public function getAttributeInputType($attribute)
+    {
+        $dataType   = $attribute->getBackend()->getType();
+        $imputType  = $attribute->getFrontend()->getInputType();
+        
+        if ($imputType == 'range') {
+            return 'range';
+        }
+        
+        if ($imputType == 'select' || $imputType == 'multiselect') {
+            return 'select';
+        }
+
+        if ($imputType == 'boolean') {
+            return 'yesno';
+        }
+
+        if ($imputType == 'price') {
+            return 'price';
+        }
+
+        if ($dataType == 'int' || $dataType == 'decimal') {
+            return 'number';
+        }
+
+        if ($dataType == 'datetime') {
+            return 'date';
+        }
+
+        return 'string';
+    }
+    
+    
 
 }
