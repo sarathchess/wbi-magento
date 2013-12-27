@@ -50,6 +50,42 @@ class Wbi_CatalogSearch_Block_Advanced_Form extends Mage_CatalogSearch_Block_Adv
     {}
     
     
+    
+    
+        /**
+     * Build attribute select element html string
+     *
+     * @param Mage_Eav_Model_Entity_Attribute_Abstract $attribute
+     * @return string
+     */
+    public function getAttributeSelectElement($attribute, $multiple = false)
+    {
+        $extra = '';
+        $options = $attribute->getSource()->getAllOptions(false);
+
+        $name = $attribute->getAttributeCode();
+
+        // 2 - avoid yes/no selects to be multiselects
+        if (is_array($options) && count($options)>2 && $multiple) {
+            $extra = 'multiple="multiple" size="4"';
+            $name.= '[]';
+        }
+        else {
+            array_unshift($options, array('value'=>'', 'label'=>Mage::helper('catalogsearch')->__('All')));
+        }
+
+        return $this->_getSelectBlock()
+            ->setName($name)
+            ->setId($attribute->getAttributeCode())
+            ->setTitle($this->getAttributeLabel($attribute))
+            ->setExtraParams($extra)
+            ->setValue($this->getAttributeValue($attribute))
+            ->setOptions($options)
+            ->setClass('multiselect')
+            ->getHtml();
+    }
+    
+    
     /**
      * Retrieve attribute input type
      *
@@ -65,8 +101,12 @@ class Wbi_CatalogSearch_Block_Advanced_Form extends Mage_CatalogSearch_Block_Adv
             return 'range';
         }
         
-        if ($imputType == 'select' || $imputType == 'multiselect') {
+        if ($imputType == 'select') {
             return 'select';
+        }
+        
+        if ($imputType == 'multiselect') {
+            return 'multiselect';
         }
 
         if ($imputType == 'boolean') {
