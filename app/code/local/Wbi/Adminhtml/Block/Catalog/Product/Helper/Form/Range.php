@@ -37,7 +37,7 @@ class Wbi_Adminhtml_Block_Catalog_Product_Helper_Form_Range extends Varien_Data_
     public function __construct($attributes=array())
     {
         parent::__construct($attributes);
-        $this->addClass('validate-zero-or-greater');
+        //$this->addClass('validate-zero-or-greater');
     }
 
 

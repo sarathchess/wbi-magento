@@ -1,3 +1,4 @@
+
 <config>
     <modules>
         <Wbi_Adminhtml>
@@ -18,4 +19,14 @@
             </adminhtml>
         </blocks>
     </global>
+    
+    <default>
+        <general>
+            <validator_data>
+                <input_types>
+                    <range>range</range>
+                </input_types>
+            </validator_data>
+        </general>
+    </default>
 </config>

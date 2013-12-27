@@ -1,0 +1,22 @@
+
+<config>
+    <modules>
+        <Wbi_Catalog>
+            <version>0.1.0</version>
+        </Wbi_Catalog>
+    </modules>
+
+
+
+    <global>
+        <models>
+            <catalog>
+                <rewrite>
+                    <resource_eav_attribute>Wbi_Catalog_Model_Resource_Eav_Attribute</resource_eav_attribute>
+                </rewrite>
+            </catalog>
+        </models>
+    </global>
+    
+
+</config>
