@@ -33,7 +33,8 @@ Mage::register('original_include_path', get_include_path());
 if (defined('COMPILER_INCLUDE_PATH')) {
     $appPath = COMPILER_INCLUDE_PATH;
     set_include_path($appPath . PS . Mage::registry('original_include_path'));
-    
+    include_once COMPILER_INCLUDE_PATH . DS . "Mage_Core_functions.php";
+    include_once COMPILER_INCLUDE_PATH . DS . "Varien_Autoload.php";
 } else {
     /**
      * Set include path
@@ -49,7 +50,7 @@ if (defined('COMPILER_INCLUDE_PATH')) {
     include_once "Varien/Autoload.php";
 }
 
-
+Varien_Autoload::register();
 
 /**
  * Main Mage hub class
