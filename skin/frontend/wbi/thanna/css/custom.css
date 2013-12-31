@@ -1,0 +1,36 @@
+/* 
+    Document   : custom
+    Created on : 27 déc. 2013, 22:22:47
+    Author     : majdi
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* Advanced Search */
+.advanced-search .form-list label { width:160px; padding-right:10px; }
+.advanced-search .form-list .input-box input,
+.advanced-search .form-list .input-box select { width: 131px }
+.advanced-search .form-list .input-range input,
+.advanced-search .form-list .input-range select { width: 55px }
+.advanced-search .form-list li { float: left; width: 161px; }
+.advanced-search #advanced-search-list {}
+.advanced-search .form-list .input-box,
+.advanced-search .form-list .input-range {  }
+.advanced-search-amount { margin:0 0 10px; }
+.advanced-search-summary { margin:10px 0; border:1px solid #e9d7c9; background:#fff6f1; padding:10px; }
+.advanced-search-summary ul { float:left; width:49%; }
+.advanced-search-summary strong { color:#E17C24; padding-left:15px; background:url(../images/i_search_criteria.gif) 0 3px no-repeat; }
+.advanced-search-summary p { clear:both; font-weight:bold; margin:0; }
+.advanced-search.fieldset {  padding: 22px 17px 12px; /*float: left; display: block; margin: 0;*/ }
+
+
+.enter-store {
+    display: block;
+    margin: 0 auto;
+    width: 186px;
+}
+
+
+.header a.logo {
+    margin: 15px 0 30px;
+}
