@@ -63,3 +63,8 @@
     </div>
 </div>
 <?php echo $this->getChildHtml('topMenu') ?>
+<!--<div id="wbi-blocked" style="display: none;"><div class="loaderBox"><div class="loaderImg"></div></div></div>-->
+
+<div style="display:none" id="loading-mask">
+    <p id="loading_mask_loader" class="loader"><img alt="En cours de chargement..." src="<?php echo $this->getSkinUrl('images/loader.gif', array('_secure'=>true)) ?>"><br>Veuillez patienter...</p>
+</div>
