@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <Wbi_Review>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Wbi_Review>
+    </modules>
+</config>
