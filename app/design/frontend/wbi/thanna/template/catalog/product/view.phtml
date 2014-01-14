@@ -73,10 +73,10 @@
                         <p class="email-friend"><a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a></p>
                     <?php endif; ?>
                 </div>
-    
+                <?php /* ?>
                 <?php if (!$this->hasOptions()):?>
                     <div class="add-to-box">
-                        <?php if($_product->isSaleable()): ?>
+                        <?php if(false): ?>
                             <?php echo $this->getChildHtml('addtocart') ?>
                         <?php endif; ?>
                         <?php //echo $this->getChildHtml('addto') ?>
@@ -85,7 +85,7 @@
                 <?php elseif (!$_product->isSaleable()): ?>
     
                 <?php endif; ?>
-    
+                <?php */ ?>
                 <?php echo $this->getChildHtml('other');?>
     
                 <?php if ($_product->isSaleable() && $this->hasOptions()):?>
