@@ -1,0 +1,92 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+
+
+<div id="rating-item-<?php echo $this->product->getId() ?>">
+    
+<div class="rating-all-box">
+    <?php if ($this->getRatingSummary($this->product)): ?>
+        <div class="rating-box">
+            <div class="rating" style="width:<?php echo $this->getRatingSummary($this->product) ?>%"></div>
+        </div>
+    <?php endif; ?>
+
+
+    <?php if ($this->getRatings() && $this->getRatings()->getSize()): ?>
+
+        <div class="starRate">
+
+            <?php foreach ($this->getRatings() as $_rating): ?>
+                <div><b class="bold"></b></div>
+                <ul>
+                    <?php $_options = $this->getSortedOptions($_rating->getOptions()) ?>
+                    <?php $last = false; ?>
+                    <?php foreach ($_options as $_option): ?>
+                        <?php $_option == end($_options) ? $last = true : $last = false; ?>
+                        <li id="ratings_<?php echo $_rating->getId() . "_" . $_option->getId() ?>" data-rating="<?php echo $_rating->getId() ?>" data-value="<?php echo $_option->getId() ?>" data-name="ratings[<?php echo $_rating->getId() ?>]"><a href="javascript:void(0)"><span>Give it <?php echo $_option->getId() ?> stars</span><b class="<?php echo $last ? 'bold' : '' ?>"></b></a></li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
+</div>
+</div>
+<script type="text/javascript">
+        var $id = "#rating-item-<?php echo $this->product->getId() ?>";
+        $jq($id+" .starRate ul").find("li").on("click", function(){
+<?php if ($this->getAllowWriteReviewFlag()): ?>
+        var $id = "#rating-item-<?php echo $this->product->getId() ?>";
+              $jq($id+" .starRate ul li").find("b").removeClass("bold");
+              $jq(this).find("b").addClass("bold");
+              $jq($id+" .rating-box").hide();
+              $jq($id+" .starRate").css("display", "block");
+              $jq.ajax({
+                  url: "<?php echo $this->getWbiListAction($this->product->getId()) ?>", 
+                  async : false,
+                  data: $jq(this).data("name")+"="+$jq(this).data("value"),
+                  type: "POST",
+                  success: function(data){  },
+                  complete: function(){ $jq("#loading-mask").attr("style", "display:none") },
+                  beforeSend: function(){ $jq("#loading-mask").attr("style", "display:block") }
+              });
+<?php else: ?>
+var $id = "#rating-item-<?php echo $this->product->getId() ?>";
+              var message = "<?php echo $this->__('Vous devez être connecté pour faire accéder à cette page. <a href=\"%s\">connexion</a> ou <a href=\"%s\">Inscription</a>', $this->getLoginLink(), Mage::helper('customer')->getRegisterUrl()) ?>";
+              var ratingbox = $id+" .rating-all-box";
+              $jq(ratingbox).attr("style", "width:100%");
+              $jq(ratingbox).html(message);
+              $jq(ratingbox).css("background-color", "yellow");
+              setTimeout(function() {
+                  $jq(ratingbox).css("background-color", "transparent");
+              }, 500);
+<?php endif ?>            
+      });                  
+</script> 
+
+
+
+
