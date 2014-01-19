@@ -16,6 +16,14 @@
                 </rewrite>
             </catalog>
         </models>
+        
+        <blocks>
+            <catalog>
+                <rewrite>
+                    <product_list>Wbi_Catalog_Block_Product_List</product_list>
+                </rewrite>
+            </catalog>
+        </blocks>
     </global>
     
 

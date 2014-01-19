@@ -351,11 +351,13 @@ class Wbi_Review_ProductController extends Mage_Core_Controller_Front_Action
                     }
 
                     $review->aggregate();
-                    $session->addSuccess($this->__('Your review has been accepted for moderation.'));
+                    $this->getResponse()->setHeader("content-type", "application/json");
+                    $this->getResponse()->setBody(json_encode(array("rating"=>$rating, "status"=>1, "message"=>$this->__('Your review has been accepted for moderation.'))));
                 }
                 catch (Exception $e) {
                     $session->setFormData($data);
-                    $session->addError($this->__('Unable to post the review.'));
+                    $this->getResponse()->setHeader("content-type", "application/json");
+                    $this->getResponse()->setBody(json_encode(array("rating"=>$rating, "status"=>0, "message"=>$this->__('Unable to post the review.'))));
                 }
             }
             else {
@@ -366,7 +368,8 @@ class Wbi_Review_ProductController extends Mage_Core_Controller_Front_Action
                     }
                 }
                 else {
-                    $session->addError($this->__('Unable to post the review.'));
+                    $this->getResponse()->setHeader("content-type", "application/json");
+                    $this->getResponse()->setBody(json_encode(array("rating"=>$rating, "status"=>0, "message"=>$this->__('Unable to post the review.'))));
                 }
             }
         }
@@ -375,6 +378,7 @@ class Wbi_Review_ProductController extends Mage_Core_Controller_Front_Action
             $this->_redirectUrl($redirectUrl);
             return;
         }
-        //$this->_redirectReferer();
+        
+       
     }
 }

@@ -25,7 +25,7 @@
  */
 ?>
 
-<?php if ($this->getAllowWriteReviewFlag()): ?>
+
 <h6>Noter ce produit</h6>
     <div class="rating-all-box">
         <?php if ($this->getRatingSummary($this->product)): ?>
@@ -55,6 +55,7 @@
     </div>
     <script type="text/javascript">
         $jq(".starRate ul").find("li").on("click", function(){
+      <?php if ($this->getAllowWriteReviewFlag()): ?>
             $jq(".starRate ul li").find("b").removeClass("bold");
             $jq(this).find("b").addClass("bold");
             $jq(".rating-box").hide();
@@ -67,11 +68,16 @@
                 complete: function(){ $jq("#loading-mask").attr("style", "display:none") },
                 beforeSend: function(){ $jq("#loading-mask").attr("style", "display:block") }
             });
+      <?php else: ?>
+            $jq('#wbi-info-modal').modal('toggle');
+            $jq('#wbi-info-modal .modal-header #title').html('Connexion');
+            var message = "<?php echo $this->__('Vous devez être connecté pour faire accéder à cette page. <a href=\"%s\">connexion</a> ou <a href=\"%s\">Inscription</a>', $this->getLoginLink(), Mage::helper('customer')->getRegisterUrl()) ?>";
+            $jq('#wbi-info-modal .modal-body p').html(message);
+      <?php endif ?>            
         });
-                                
-    </script>
-<?php else: ?>
-    <p class="review-nologged" id="review-form">
-        <?php echo $this->__('Only registered users can write reviews. Please, <a href="%s">log in</a> or <a href="%s">register</a>', $this->getLoginLink(), Mage::helper('customer')->getRegisterUrl()) ?>
-    </p>
-        <?php endif ?>
+                          
+    </script> 
+    
+    
+    
+

@@ -113,6 +113,7 @@ Category layered navigation layout
             <block type="catalogsearch/advanced_form" before="left.permanent.callout" name="catalogsearch.advanced.form" template="catalogsearch/advanced/form.phtml" />
             <block type="catalog/category_view" name="category.products" template="catalog/category/view.phtml">
                 <block type="catalog/product_list" name="product_list" template="catalog/product/list.phtml">
+                    <block type="wbi_review/wbiview" name="product.review.wbiview" as="review_wbiview" template="review/wbiview_list.phtml"/>
                     <!-- <action method="addReviewSummaryTemplate"><type>default</type><template>review/helper/su.phtml</template></action> -->
                     <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
                         <block type="page/html_pager" name="product_list_toolbar_pager"/>

@@ -62,10 +62,17 @@ class Wbi_Review_Block_Wbiview extends Mage_Core_Block_Template {
                     )
             );
         }
+        //echo "aaaaaaaaaaaaaaaaa ".$this->product->getId();
+        //$this->setProduct(Mage::getModel("catalog/product")->load($this->productId));
 
         $this->setTemplate('review/wbiview.phtml')
                 ->assign('data', $data)
                 ->assign('messages', Mage::getSingleton('review/session')->getMessages(true));
+    }
+    
+    public function setProduct($product){
+        echo "majiiiiiiiiiiiiiiiiiiiiiiiiii".$product->getId();
+        $this->product = $product;
     }
 
     public function getProductInfo() {
@@ -80,6 +87,11 @@ class Wbi_Review_Block_Wbiview extends Mage_Core_Block_Template {
 
     public function getWbiAction() {
         $productId = Mage::app()->getRequest()->getParam('id', false);
+        return Mage::getUrl('review/product/wbipost', array('id' => $productId));
+    }
+    
+    
+    public function getWbiListAction($productId) {
         return Mage::getUrl('review/product/wbipost', array('id' => $productId));
     }
 
